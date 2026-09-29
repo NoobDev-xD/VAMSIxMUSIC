@@ -1,105 +1,37 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:050505,35:160008,65:650018,100:ff1744&text=VAMSIxMUSIC&fontSize=58&fontColor=ffffff&fontAlignY=38&animation=twinkling&desc=TELEGRAM%20MUSIC%20EXPERIENCE&descAlignY=62&descSize=16&descColor=ff4d6d"/>
+# 🐺『 𝙑𝘼𝙈𝙎𝙄𝙭𝙈𝙐𝙎𝙄𝘾 』🐺
+
+### 🔴 𝙉𝙀𝙊𝙉 𝙒𝙊𝙇𝙁 • 𝙈𝙐𝙎𝙄𝘾 𝘽𝙊𝙏 🔴
+
+<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=800&size=24&duration=2500&pause=700&color=FF0000&center=true&vCenter=true&width=650&lines=🐺+ENTER+THE+WOLF+ZONE;🎵+PLAY+YOUR+FAVORITE+MUSIC;⚡+FAST+%7C+SMOOTH+%7C+POWERFUL;🔴+VAMSIxMUSIC+IS+ONLINE" />
 
 <br>
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=18&duration=2600&pause=900&color=FF1744&center=true&vCenter=true&width=650&lines=%E2%9A%A1+PLAY.+FEEL.+REPEAT.;%F0%9F%8E%A7+YOUR+MUSIC%2C+YOUR+VIBE.;%F0%9F%90%BA+BUILT+FOR+THE+NIGHT.;%F0%9F%94%A5+POWERED+BY+VAMSIxMUSIC." />
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-<br><br>
+### 🐺 𝙏𝙃𝙀 𝙒𝙊𝙇𝙁 𝙄𝙎 𝘼𝙒𝘼𝙆𝙀 🐺
 
-<img src="https://img.shields.io/badge/VAMSIxMUSIC-0a0a0a?style=for-the-badge&logo=musicbrainz&logoColor=ff1744&labelColor=050505"/>
-<img src="https://img.shields.io/badge/TELEGRAM-0a0a0a?style=for-the-badge&logo=telegram&logoColor=ff1744&labelColor=050505"/>
-<img src="https://img.shields.io/badge/PYTHON-0a0a0a?style=for-the-badge&logo=python&logoColor=ff1744&labelColor=050505"/>
+> 🔴 **VAMSIxMUSIC** is a powerful Telegram Music Bot  
+> built for a smooth and stylish music experience.
 
-<br><br>
+🎧 **High Quality Music**  
+⚡ **Fast & Smooth Playback**  
+🔎 **Easy Music Search**  
+🎛️ **Powerful Music Controls**  
+👥 **Group Voice Chat Support**
 
-`🎧 MUSIC` &nbsp; `⚡ SPEED` &nbsp; `🖤 DARK` &nbsp; `🔴 NEON`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-</div>
-
----
-
-<div align="center">
-
-## `01` — THE EXPERIENCE
-
-### 🐺 VAMSIxMUSIC
-
-**A dark, fast and aesthetic Telegram Music Bot.**
-
-Search your favourite music,  
-drop it into the voice chat,  
-and let the night begin.
-
-<br>
-
-<img src="https://img.shields.io/badge/SEARCH-FF1744?style=flat-square&labelColor=080808"/>
-&nbsp;
-<img src="https://img.shields.io/badge/PLAY-FF1744?style=flat-square&labelColor=080808"/>
-&nbsp;
-<img src="https://img.shields.io/badge/VIBE-FF1744?style=flat-square&labelColor=080808"/>
-
-</div>
-
----
-
-## `02` — ✦ FEATURES
-
-<table>
-<tr>
-<td width="50%">
-
-### 🎧 MUSIC
-
-- 🔎 Search music by name
-- ▶️ Instant playback
-- ⏸️ Pause / Resume
-- ⏭️ Skip tracks
-- ⏹️ Stop playback
-- 📜 Queue management
-- 🔊 Volume control
-- 🎵 Voice Chat playback
-
-</td>
-
-<td width="50%">
-
-### ⚡ EXPERIENCE
-
-- 🚀 Fast responses
-- 🖤 Clean dark interface
-- 🔴 Neon visual identity
-- 🧩 Modular architecture
-- 🎯 Smooth controls
-- 🛠️ Easy customization
-- 💫 Telegram focused
-- 🐺 Unique wolf identity
-
-</td>
-</tr>
-</table>
-
----
-
-<div align="center">
-
-## `03` — HOW IT FLOWS
+## 🩸 𝙒𝙊𝙇𝙁 𝙁𝙀𝘼𝙏𝙐𝙍𝙀𝙎
 
 ```text
-        🔎 SEARCH
-           │
-           ▼
-      🎵 SELECT
-           │
-           ▼
-      ⚡ PROCESS
-           │
-           ▼
-      🎧 CONNECT
-           │
-           ▼
-       🔥 PLAY
-           │
-           ▼
-      🐺 ENJOY
+╔══════════════════════════════════════╗
+║  🐺  FAST MUSIC SEARCH               ║
+║  🔴  HIGH QUALITY AUDIO              ║
+║  ⚡  INSTANT PLAYBACK                ║
+║  🎧  VOICE CHAT MUSIC                ║
+║  🎛️  MUSIC CONTROLS                  ║
+║  🔥  QUEUE SYSTEM                    ║
+║  🛡️  ADMIN CONTROLS                 ║
+╚══════════════════════════════════════╝
