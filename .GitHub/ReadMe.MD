@@ -39,3 +39,19 @@
        🌑  DARK         🐺  VIBES
 
           ────── ENTER THE NIGHT ──────
+
+
+🐺 𝙒𝙃𝘼𝙏 𝙄𝙎 𝙑𝘼𝙈𝙎𝙄𝙭𝙈𝙐𝙎𝙄𝘾?
+VAMSIxMUSIC is a powerful Telegram music experience built around speed, simplicity and a dark neon aesthetic.
+╭──────────────────────────────────────────────╮
+│                                              │
+│   🐺  V A M S I x M U S I C                 │
+│                                              │
+│   🎧 Search                                  │
+│   🔎 Discover                                │
+│   🎵 Play                                    │
+│   ⚡ Control                                 │
+│   🔥 Enjoy                                   │
+│                                              │
+╰──────────────────────────────────────────────╯
+
