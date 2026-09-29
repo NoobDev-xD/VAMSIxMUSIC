@@ -84,7 +84,7 @@ class Userbot(Client):
                     LOGGER(__name__).info(f"Assistant 1 status in logger group: {member.status}")
                     
                     # Try to send message
-                    await self.one.send_message(config.LOGGER_ID, "✅ Assistant 1 Started Successfully")
+                    await self.one.send_message(config.LOGGER_ID, "❖ 𝐈 𝐚ɱ ʀ𝛆𝐚ɗ𝐲 𝐭๏ 𝐑𝛆ƈ๏ʀɗ 𝐓ʜ𝛆ɩʀ 𝐕ɩɗ𝛆๏ Ƈ𝐚ʟʟ𝐬 ⏤͟͞●")
                     LOGGER(__name__).info("Assistant 1 successfully sent message to logger group")
                     
                 except Exception as e:
