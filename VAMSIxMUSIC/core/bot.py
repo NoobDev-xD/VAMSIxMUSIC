@@ -47,7 +47,7 @@ class Shruti(Client):
         try:
             await self.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"<u><b>» {self.mention} ʙᴏᴛ sᴛᴀʀᴛᴇᴅ :</b><u>\n\nɪᴅ : <code>{self.id}</code>\nɴᴀᴍᴇ : {self.name}\nᴜsᴇʀɴᴀᴍᴇ : @{self.username}",
+                text=f"❖ 𝐖๏ʟғ 𝐌ᴜsɩᴄ 𝐑𝛆ρ๏ʀʈɩŋʛ 𝐒ɩʀ⏤͟͞●\n\n❖ 𝐈ᴧɱ 𝐑𝛆ᴧɗყ 𝐓๏ 𝐅ᴜᴄƙ 𝐆ʀ๏ᴜρs ⏤͟͞● 🐺🎶\n\n❖ 𝐈𝐃 ⏤͟͞● : <code>{self.id}</code>\n\n❖ 𝐍𝐚𝐦𝛆 ⏤͟͞● : {self.name}\n\n❖ 𝐔𝐬𝛆ʀ𝐧𝐚ɱ𝛆 ⏤͟͞● : @{self.username}",
             )
         except (errors.ChannelInvalid, errors.PeerIdInvalid):
             LOGGER(__name__).error(
