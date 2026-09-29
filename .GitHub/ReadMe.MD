@@ -1,25 +1,20 @@
 <div align="center">
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!--                    VAMSIxMUSIC • HEADER                       -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,25:120000,50:4A0000,75:8B0000,100:FF003C&height=180&section=header&text=VAMSIxMUSIC&fontSize=52&fontColor=ffffff&animation=twinkling&fontAlignY=38"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:050505,35:160008,65:650018,100:ff1744&text=VAMSIxMUSIC&fontSize=58&fontColor=ffffff&fontAlignY=38&animation=twinkling&desc=TELEGRAM%20MUSIC%20EXPERIENCE&descAlignY=62&descSize=16&descColor=ff4d6d"/>
 
 <br>
 
-<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=900&size=25&duration=1800&pause=500&color=FF003C&center=true&vCenter=true&width=850&lines=%E2%9A%A1+VAMSIxMUSIC+%E2%9A%A1;%F0%9F%90%BA+THE+WOLF+MUSIC+EXPERIENCE;%F0%9F%94%A5+ENTER+THE+NEON+NIGHT;%F0%9F%8E%A7+MUSIC+%E2%80%A2+POWER+%E2%80%A2+VIBES;%F0%9F%A9%B8+BUILT+FOR+TELEGRAM" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=18&duration=2600&pause=900&color=FF1744&center=true&vCenter=true&width=650&lines=%E2%9A%A1+PLAY.+FEEL.+REPEAT.;%F0%9F%8E%A7+YOUR+MUSIC%2C+YOUR+VIBE.;%F0%9F%90%BA+BUILT+FOR+THE+NIGHT.;%F0%9F%94%A5+POWERED+BY+VAMSIxMUSIC." />
 
 <br><br>
 
-<img src="https://img.shields.io/badge/%F0%9F%90%BA_WOLF_MODE-ACTIVE-FF003C?style=for-the-badge&labelColor=050505"/>
-<img src="https://img.shields.io/badge/%F0%9F%94%A5_NEON_CORE-ONLINE-FF003C?style=for-the-badge&labelColor=050505"/>
-<img src="https://img.shields.io/badge/%F0%9F%8E%A7_MUSIC_ENGINE-READY-FF003C?style=for-the-badge&labelColor=050505"/>
-<img src="https://img.shields.io/badge/%E2%9A%A1_HIGH_SPEED-ENABLED-FF003C?style=for-the-badge&labelColor=050505"/>
+<img src="https://img.shields.io/badge/VAMSIxMUSIC-0a0a0a?style=for-the-badge&logo=musicbrainz&logoColor=ff1744&labelColor=050505"/>
+<img src="https://img.shields.io/badge/TELEGRAM-0a0a0a?style=for-the-badge&logo=telegram&logoColor=ff1744&labelColor=050505"/>
+<img src="https://img.shields.io/badge/PYTHON-0a0a0a?style=for-the-badge&logo=python&logoColor=ff1744&labelColor=050505"/>
 
 <br><br>
 
-### 🐺 `ɴᴏ ɴᴏɪsᴇ • ɴᴏ ᴅɪsᴛʀᴀᴄᴛɪᴏɴ • ᴊᴜsᴛ ᴍᴜsɪᴄ`
+`🎧 MUSIC` &nbsp; `⚡ SPEED` &nbsp; `🖤 DARK` &nbsp; `🔴 NEON`
 
 </div>
 
@@ -27,31 +22,84 @@
 
 <div align="center">
 
-# 𓆩🩸𓆪 𝙒𝙀𝙇𝘾𝙊𝙈𝙀 𝙏𝙊 𝙏𝙃𝙀 𝙒𝙊𝙇𝙁 𝘿𝙀𝙉 𓆩🩸𓆪
+## `01` — THE EXPERIENCE
+
+### 🐺 VAMSIxMUSIC
+
+**A dark, fast and aesthetic Telegram Music Bot.**
+
+Search your favourite music,  
+drop it into the voice chat,  
+and let the night begin.
+
+<br>
+
+<img src="https://img.shields.io/badge/SEARCH-FF1744?style=flat-square&labelColor=080808"/>
+&nbsp;
+<img src="https://img.shields.io/badge/PLAY-FF1744?style=flat-square&labelColor=080808"/>
+&nbsp;
+<img src="https://img.shields.io/badge/VIBE-FF1744?style=flat-square&labelColor=080808"/>
+
+</div>
+
+---
+
+## `02` — ✦ FEATURES
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎧 MUSIC
+
+- 🔎 Search music by name
+- ▶️ Instant playback
+- ⏸️ Pause / Resume
+- ⏭️ Skip tracks
+- ⏹️ Stop playback
+- 📜 Queue management
+- 🔊 Volume control
+- 🎵 Voice Chat playback
+
+</td>
+
+<td width="50%">
+
+### ⚡ EXPERIENCE
+
+- 🚀 Fast responses
+- 🖤 Clean dark interface
+- 🔴 Neon visual identity
+- 🧩 Modular architecture
+- 🎯 Smooth controls
+- 🛠️ Easy customization
+- 💫 Telegram focused
+- 🐺 Unique wolf identity
+
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+## `03` — HOW IT FLOWS
 
 ```text
-          ░▒▓█  V A M S I x M U S I C  █▓▒░
-
-              🐺  THE WOLF IS AWAKE  🐺
-
-       🎧  MUSIC        ⚡  SPEED
-       🔥  POWER        🩸  NEON
-       🌑  DARK         🐺  VIBES
-
-          ────── ENTER THE NIGHT ──────
-
-
-🐺 𝙒𝙃𝘼𝙏 𝙄𝙎 𝙑𝘼𝙈𝙎𝙄𝙭𝙈𝙐𝙎𝙄𝘾?
-VAMSIxMUSIC is a powerful Telegram music experience built around speed, simplicity and a dark neon aesthetic.
-╭──────────────────────────────────────────────╮
-│                                              │
-│   🐺  V A M S I x M U S I C                 │
-│                                              │
-│   🎧 Search                                  │
-│   🔎 Discover                                │
-│   🎵 Play                                    │
-│   ⚡ Control                                 │
-│   🔥 Enjoy                                   │
-│                                              │
-╰──────────────────────────────────────────────╯
-
+        🔎 SEARCH
+           │
+           ▼
+      🎵 SELECT
+           │
+           ▼
+      ⚡ PROCESS
+           │
+           ▼
+      🎧 CONNECT
+           │
+           ▼
+       🔥 PLAY
+           │
+           ▼
+      🐺 ENJOY
