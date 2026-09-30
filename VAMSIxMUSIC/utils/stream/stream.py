@@ -138,7 +138,7 @@ async def _stream(
                 if not forceplay:
                     db[chat_id] = []
                 status = True if video else None
-                thumb_task = asyncio.ensure_future(get_thumb(vidid))
+                thumb_task = asyncio.ensure_future(get_thumb(vidid, title, duration_min))
                 file_path, direct = await _fetch(_, chat_id, vidid, mystic, video)
                 await Shruti.join_call(
                     chat_id,
@@ -202,7 +202,7 @@ async def _stream(
         thumb_task = (
             None
             if await is_active_chat(chat_id)
-            else asyncio.ensure_future(get_thumb(vidid))
+            else asyncio.ensure_future(get_thumb(vidid, title, duration_min))
         )
         file_path, direct = await _fetch(_, chat_id, vidid, mystic, video)
         async with Shruti.chat_lock(chat_id):
@@ -243,7 +243,7 @@ async def _stream(
                     "video" if video else "audio",
                     forceplay=forceplay,
                 )
-                img = await (thumb_task if thumb_task else get_thumb(vidid))
+                img = await (thumb_task if thumb_task else get_thumb(vidid, title, duration_min))
                 run = await send_now_playing_rich(
                     nand,
                     chat_id,
@@ -402,7 +402,7 @@ async def _stream(
                 "video" if video else "audio",
                 forceplay=forceplay,
             )
-            img = await get_thumb(vidid)
+            img = await get_thumb(vidid, title, duration_min)
             run = await send_now_playing_rich(
                 nand,
                 chat_id,
