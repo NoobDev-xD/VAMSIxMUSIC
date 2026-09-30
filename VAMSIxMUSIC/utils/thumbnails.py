@@ -60,16 +60,32 @@ def _font(size, bold=False):
 
 
 def _circle_crop(im, size):
-    im = im.convert("RGBA").resize((size, size), Image.LANCZOS)
+    # center square crop first (no stretch)
+    im = im.convert("RGBA")
+    w, h = im.size
+    side = min(w, h)
+    left = (w - side) // 2
+    top = (h - side) // 2
+    im = im.crop((left, top, left + side, top + side))
+    im = im.resize((size, size), Image.LANCZOS)
+
+    # clean circle mask (stays inside)
     mask = Image.new("L", (size, size), 0)
     d = ImageDraw.Draw(mask)
-    d.ellipse((0, 0, size, size), fill=255)
+    d.ellipse((1, 1, size - 2, size - 2), fill=255)
+
     out = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     out.paste(im, (0, 0), mask)
-    ring = Image.new("RGBA", (size + 16, size + 16), (0, 0, 0, 0))
+
+    # red ring outside — art never spills
+    ring_size = size + 20
+    ring = Image.new("RGBA", (ring_size, ring_size), (0, 0, 0, 0))
     rd = ImageDraw.Draw(ring)
-    rd.ellipse((0, 0, size + 15, size + 15), outline=(220, 20, 60, 255), width=6)
-    ring.paste(out, (8, 8), out)
+    rd.ellipse((2, 2, ring_size - 3, ring_size - 3), outline=(220, 20, 60, 255), width=5)
+    rd.ellipse((8, 8, ring_size - 9, ring_size - 9), outline=(40, 0, 10, 200), width=2)
+
+    offset = (ring_size - size) // 2
+    ring.paste(out, (offset, offset), out)
     return ring
 
 
@@ -138,8 +154,8 @@ def _build_card(yt_img, title, duration):
 
     if yt_img is not None:
         try:
-            circ = _circle_crop(yt_img, 340)
-            canvas.paste(circ, (780, 170), circ)
+            circ = _circle_crop(yt_img, 320)
+            canvas.paste(circ, (790, 180), circ)
         except Exception:
             pass
 
@@ -151,8 +167,12 @@ async def get_thumb(videoid, title=None, duration=None):
     safe_title = (title or "track").replace("/", "_")[:40]
     path = f"cache/{videoid}_{safe_title}.jpg"
 
-    if os.path.isfile(path) and os.path.getsize(path) > 0 and title:
-        return path
+    # old cache delete — new circle apply avvali
+    if os.path.isfile(path):
+        try:
+            os.remove(path)
+        except Exception:
+            pass
 
     yt_img = None
     try:
