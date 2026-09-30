@@ -17,11 +17,6 @@ _FONT2 = os.path.join(_ASSETS, "font.ttf")
 
 W, H = 1280, 720
 
-# circle position on wolf_bg (right side)
-CIRCLE_SIZE = 340
-CIRCLE_X = 820
-CIRCLE_Y = 175
-
 
 def _trim_bars(image):
     width, height = image.size
@@ -65,7 +60,7 @@ def _font(size, bold=False):
 
 
 def _circle_crop(im, size):
-    """Strict circle — transparent outside, zero spill."""
+    # center square crop
     im = im.convert("RGBA")
     w, h = im.size
     side = min(w, h)
@@ -74,16 +69,28 @@ def _circle_crop(im, size):
     im = im.crop((left, top, left + side, top + side))
     im = im.resize((size, size), Image.LANCZOS)
 
-    # 4x mask for smooth edges
+    # smooth circle mask (4x then downscale = no spill)
     big = size * 4
     mask_big = Image.new("L", (big, big), 0)
     d = ImageDraw.Draw(mask_big)
-    d.ellipse((2, 2, big - 3, big - 3), fill=255)
+    d.ellipse((8, 8, big - 9, big - 9), fill=255)
     mask = mask_big.resize((size, size), Image.LANCZOS)
 
-    out = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    out.paste(im, (0, 0), mask)
-    return out
+    circled = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    circled.paste(im, (0, 0), mask)
+
+    # red ring outside only
+    pad = 14
+    final_size = size + pad * 2
+    final = Image.new("RGBA", (final_size, final_size), (0, 0, 0, 0))
+    rd = ImageDraw.Draw(final)
+    rd.ellipse(
+        (3, 3, final_size - 4, final_size - 4),
+        outline=(220, 20, 60, 255),
+        width=6,
+    )
+    final.paste(circled, (pad, pad), circled)
+    return final
 
 
 def _wrap(text, font, max_w, draw):
@@ -103,63 +110,56 @@ def _wrap(text, font, max_w, draw):
 
 
 def _build_card(yt_img, title, duration):
-    # base
+    canvas = Image.new("RGBA", (W, H), (8, 8, 12, 255))
+    draw = ImageDraw.Draw(canvas)
+
     if os.path.isfile(_BG_PATH):
         try:
-            canvas = Image.open(_BG_PATH).convert("RGBA")
-            canvas = canvas.resize((W, H), Image.LANCZOS)
+            bg = Image.open(_BG_PATH).convert("RGBA")
+            bg = bg.resize((W, H), Image.LANCZOS)
+            canvas.paste(bg, (0, 0))
+            overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            od = ImageDraw.Draw(overlay)
+            od.rectangle((0, 0, 620, H), fill=(0, 0, 0, 180))
+            canvas = Image.alpha_composite(canvas, overlay)
+            draw = ImageDraw.Draw(canvas)
         except Exception:
-            canvas = Image.new("RGBA", (W, H), (8, 8, 12, 255))
-    else:
-        canvas = Image.new("RGBA", (W, H), (8, 8, 12, 255))
+            pass
 
-    draw = ImageDraw.Draw(canvas)
+    panel = (28, 40, 600, 680)
+    draw.rounded_rectangle(panel, radius=28, fill=(18, 18, 24, 240), outline=(180, 20, 50, 255), width=2)
 
-    # dark left panel for text readability
-    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    od = ImageDraw.Draw(overlay)
-    od.rounded_rectangle((24, 30, 610, 690), radius=30, fill=(10, 10, 14, 200))
-    od.rounded_rectangle((24, 30, 610, 690), radius=30, outline=(180, 20, 50, 220), width=2)
-    canvas = Image.alpha_composite(canvas, overlay)
-    draw = ImageDraw.Draw(canvas)
+    draw.rounded_rectangle((55, 70, 260, 115), radius=14, fill=(160, 15, 40, 255))
+    f_badge = _font(22, bold=True)
+    draw.text((75, 80), "NOW PLAYING", font=f_badge, fill=(255, 255, 255, 255))
 
-    # NOW PLAYING badge
-    draw.rounded_rectangle((50, 60, 270, 110), radius=12, fill=(180, 15, 40, 255))
-    f_badge = _font(20, bold=True)
-    draw.text((70, 72), "NOW PLAYING", font=f_badge, fill=(255, 255, 255, 255))
-
-    # title
-    f_title = _font(40, bold=True)
+    f_title = _font(42, bold=True)
     clean = (title or "Unknown Track").strip()
-    if len(clean) > 55:
-        clean = clean[:52] + "..."
-    lines = _wrap(clean, f_title, 520, draw)
-    y = 150
+    if len(clean) > 60:
+        clean = clean[:57] + "..."
+    lines = _wrap(clean, f_title, 500, draw)
+    y = 160
     for line in lines:
-        draw.text((50, y), line, font=f_title, fill=(255, 255, 255, 255))
-        y += 50
+        draw.text((55, y), line, font=f_title, fill=(255, 255, 255, 255))
+        y += 52
 
-    # time
-    f_dur = _font(26)
+    f_dur = _font(28)
     dur_text = f"Time  {duration}" if duration else "Time  --:--"
-    draw.text((50, y + 16), dur_text, font=f_dur, fill=(220, 60, 80, 255))
+    draw.text((55, y + 20), dur_text, font=f_dur, fill=(220, 60, 80, 255))
 
-    # equalizer bars
-    bar_x, bar_y = 50, 530
-    heights = [20, 36, 52, 30, 44, 24, 40, 56, 32, 22]
+    bar_x, bar_y = 55, 520
+    heights = [18, 32, 48, 28, 40, 22, 36, 50, 30, 20]
     for i, h in enumerate(heights):
         x0 = bar_x + i * 18
-        draw.rectangle((x0, bar_y + 56 - h, x0 + 12, bar_y + 56), fill=(220, 25, 55, 255))
+        draw.rectangle((x0, bar_y + 50 - h, x0 + 12, bar_y + 50), fill=(200, 25, 55, 255))
 
-    # brand
-    f_brand = _font(28, bold=True)
-    draw.text((50, 610), "Wolf x Music", font=f_brand, fill=(220, 40, 70, 255))
+    f_brand = _font(30, bold=True)
+    draw.text((55, 600), "Wolf x Music", font=f_brand, fill=(220, 40, 70, 255))
 
-    # YouTube thumb — STRICT inside circle only
     if yt_img is not None:
         try:
-            circ = _circle_crop(yt_img, CIRCLE_SIZE)
-            canvas.paste(circ, (CIRCLE_X, CIRCLE_Y), circ)
+            circ = _circle_crop(yt_img, 300)
+            canvas.paste(circ, (800, 190), circ)
         except Exception:
             pass
 
@@ -168,9 +168,10 @@ def _build_card(yt_img, title, duration):
 
 async def get_thumb(videoid, title=None, duration=None):
     os.makedirs("cache", exist_ok=True)
-    safe = (title or "track").replace("/", "_").replace(" ", "_")[:40]
-    path = f"cache/{videoid}_{safe}.jpg"
+    safe_title = (title or "track").replace("/", "_").replace(" ", "_")[:40]
+    path = f"cache/{videoid}_{safe_title}.jpg"
 
+    # always rebuild so new circle applies
     if os.path.isfile(path):
         try:
             os.remove(path)
@@ -194,7 +195,7 @@ async def get_thumb(videoid, title=None, duration=None):
 
     try:
         card = _build_card(yt_img, title or "Now Playing", duration or "")
-        card.save(path, "JPEG", quality=93)
+        card.save(path, "JPEG", quality=92)
         return path
     except Exception:
         pass
