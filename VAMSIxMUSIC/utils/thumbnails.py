@@ -158,8 +158,8 @@ def _build_card(yt_img, title, duration):
 
     if yt_img is not None:
         try:
-            circ = _circle_crop(yt_img, 300)
-            canvas.paste(circ, (895, 220), circ)
+            circ = _circle_crop(yt_img, 400)
+            canvas.paste(circ, (760, 140), circ)
         except Exception:
             pass
 
