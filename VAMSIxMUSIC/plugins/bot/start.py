@@ -24,6 +24,7 @@ from VAMSIxMUSIC.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
+
 MESSAGE_EFFECTS = [
     5107584321108051014,
     5159385139981059251,
@@ -32,33 +33,50 @@ MESSAGE_EFFECTS = [
 ]
 
 
+# ============================================================
+# PRIVATE START
+# ============================================================
+
 @nand.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
+
     effect_id = random.choice(MESSAGE_EFFECTS)
+
     name = message.text.split(None, 1)[1] if len(message.text.split()) > 1 else ""
+
     if name[0:4] == "help":
         keyboard = help_pannel(_)
+
         return await message.reply_photo(
             photo=config.START_IMG_URL,
             caption=_["help_1"].format(config.SUPPORT_CHAT),
             reply_markup=keyboard,
             effect_id=effect_id,
         )
+
     if name[0:3] == "sud":
         await sudoers_list(client=client, message=message, _=_)
+
         if await is_on_off(2):
             return await nand.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n"
+                f"<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n"
+                f"<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
+
         return
+
     if name[0:3] == "inf":
         m = await message.reply_text("🔎")
+
         query = (str(name)).replace("info_", "", 1)
         query = f"https://www.youtube.com/watch?v={query}"
+
         results = VideosSearch(query, limit=1)
+
         for result in (await results.next())["result"]:
             title = result["title"]
             duration = result["duration"]
@@ -68,72 +86,151 @@ async def start_pm(client, message: Message, _):
             channel = result["channel"]["name"]
             link = result["link"]
             published = result["publishedTime"]
+
         searched_text = _["start_6"].format(
-            title, duration, views, published, channellink, channel, nand.mention
+            title,
+            duration,
+            views,
+            published,
+            channellink,
+            channel,
+            nand.mention,
         )
+
         key = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(text=_["S_B_8"], url=link),
-                    InlineKeyboardButton(text=_["S_B_9"], url=config.SUPPORT_CHAT),
+                    InlineKeyboardButton(
+                        text=_["S_B_9"],
+                        url=config.SUPPORT_CHAT,
+                    ),
                 ],
             ]
         )
+
         await m.delete()
+
         await nand.send_photo(
             chat_id=message.chat.id,
             photo=thumbnail,
             caption=searched_text,
             reply_markup=key,
         )
+
         if await is_on_off(2):
             await nand.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n"
+                f"<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n"
+                f"<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
+
         return
+
     out = private_panel(_)
+
     await message.reply_photo(
         photo=config.START_IMG_URL,
-        caption=_["start_2"].format(message.from_user.mention, nand.mention),
+        caption=_["start_2"].format(
+            message.from_user.mention,
+            nand.mention,
+        ),
         reply_markup=InlineKeyboardMarkup(out),
         effect_id=effect_id,
     )
+
     if await is_on_off(2):
         return await nand.send_message(
             chat_id=config.LOGGER_ID,
-            text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+            text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n"
+            f"<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n"
+            f"<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
         )
 
+
+# ============================================================
+# GROUP START
+# ============================================================
 
 @nand.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
 async def start_gp(client, message: Message, _):
     out = start_panel(_)
     uptime = int(time.time() - _boot_)
+
     await message.reply_photo(
         photo=config.START_IMG_URL,
-        caption=_["start_1"].format(nand.mention, get_readable_time(uptime)),
+        caption=_["start_1"].format(
+            nand.mention,
+            get_readable_time(uptime),
+        ),
         reply_markup=InlineKeyboardMarkup(out),
     )
+
     return await add_served_chat(message.chat.id)
 
 
+# ============================================================
+# WELCOME HANDLER
+# ============================================================
+
 @nand.on_message(filters.new_chat_members, group=-1)
 async def welcome(client, message: Message):
+
     for member in message.new_chat_members:
+
         try:
+
+            # ====================================================
+            # OWNER SPECIAL WELCOME
+            # ====================================================
+
+            if member.id == config.OWNER_ID:
+
+                OWNER_WELCOME_VIDEO = (
+                    "BAACAgQAAxkDaSGCG2qZJFMI724Hr0sD_yTEviu_3vO4AAKhDAACvp3NUFmJGgABbfMMaz0E.mp4"
+                )
+
+                await message.reply_video(
+                    video=OWNER_WELCOME_VIDEO,
+                    caption=(
+                        f"🐺 <b>THE WOLF HAS ARRIVED...</b> 🩸\n\n"
+                        f"⚡ <b>WELCOME, {member.mention}!</b>\n\n"
+                        f"👑 The Owner has entered the pack.\n"
+                        f"🎧 <b>VAMSIxMUSIC</b> is ready to serve.\n\n"
+                        f"🐺 <i>Let the music begin...</i> 🔥"
+                    ),
+                )
+
+                # Stop the normal welcome handler
+                # for the owner.
+                await message.stop_propagation()
+                return
+
+            # ====================================================
+            # NORMAL MEMBER / BOT WELCOME
+            # ====================================================
+
             language = await get_lang(message.chat.id)
             _ = get_string(language)
+
             if await is_banned_user(member.id):
                 try:
                     await message.chat.ban_member(member.id)
                 except:
                     pass
+
+            # ====================================================
+            # BOT JOIN
+            # ====================================================
+
             if member.id == nand.id:
+
                 if message.chat.type != ChatType.SUPERGROUP:
                     await message.reply_text(_["start_4"])
                     return await nand.leave_chat(message.chat.id)
+
                 if message.chat.id in await blacklisted_chats():
                     await message.reply_text(
                         _["start_5"].format(
@@ -143,9 +240,11 @@ async def welcome(client, message: Message):
                         ),
                         disable_web_page_preview=True,
                     )
+
                     return await nand.leave_chat(message.chat.id)
 
                 out = start_panel(_)
+
                 await message.reply_photo(
                     photo=config.START_IMG_URL,
                     caption=_["start_3"].format(
@@ -156,7 +255,10 @@ async def welcome(client, message: Message):
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
+
                 await add_served_chat(message.chat.id)
+
                 await message.stop_propagation()
+
         except Exception as ex:
             print(ex)
