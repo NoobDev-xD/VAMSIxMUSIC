@@ -50,3 +50,59 @@ Wolf pack energy. Shadow Monarch control. Black & blood-red style.
 ---
 
 ## 🐺 SHADOW FEATURES
+
+╔════════════════════════════════════════════════╗
+║  🐺  FAST MUSIC SEARCH                         ║
+║  🔴  HIGH QUALITY AUDIO                        ║
+║  ⚡  INSTANT PLAYBACK                          ║
+║  🎧  VOICE CHAT MUSIC                          ║
+║  🎛️  PLAY • PAUSE • SKIP • STOP                ║
+║  🔥  QUEUE + PLAYLIST                          ║
+║  🛡️  ADMIN / SUDO CONTROLS                    ║
+║  🌑  SHADOW THUMBNAILS                         ║
+╚════════════════════════════════════════════════╝
+
+
+- **Play** from YouTube, Spotify, Apple Music, Resso, SoundCloud, Telegram files  
+- **Video + Audio** stream in voice chat  
+- **Queue** with position announce  
+- **Force play** like a monarch — skip the line  
+- **Heroku / Docker / VPS** ready  
+
+---
+
+## 🩸 DEPLOY — SUMMON THE WOLF
+
+<p align="center">
+  <a href="https://heroku.com/deploy?template=https://github.com/NoobDev-xD/VAMSIxMUSIC">
+    <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku">
+  </a>
+</p>
+
+### Required env (`.env` / Heroku config)
+
+```env
+API_ID=
+API_HASH=
+BOT_TOKEN=
+MONGO_DB_URI=
+OWNER_ID=
+LOGGER_ID=
+DURATION_LIMIT=60
+HEROKU_APP_NAME=
+HEROKU_API_KEY=
+UPSTREAM_REPO=https://github.com/NoobDev-xD/VAMSIxMUSIC
+UPSTREAM_BRANCH=main
+SUPPORT_CHANNEL=
+
+git clone https://github.com/NoobDev-xD/VAMSIxMUSIC
+cd VAMSIxMUSIC
+docker build -t vamsixmusic .
+docker run -d --env-file .env --name wolf vamsixmusic
+
+git clone https://github.com/NoobDev-xD/VAMSIxMUSIC
+cd VAMSIxMUSIC
+pip3 install -r requirements.txt
+bash start
+
+
