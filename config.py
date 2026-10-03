@@ -40,12 +40,12 @@ GIT_TOKEN = getenv("GIT_TOKEN")
 
 SUPPORT_CHANNEL = getenv(
     "SUPPORT_CHANNEL",
-    "https://t.me/RudraNoxx"
+    "https://t.me/PVUniverse"
 )
 
 SUPPORT_CHAT = getenv(
     "SUPPORT_CHAT",
-    "https://t.me/RudraNoxx"
+    "https://t.me/+fNTWIJFGzS1lMGE0"
 )
 
 AUTO_LEAVING_ASSISTANT = getenv(
@@ -90,7 +90,7 @@ START_IMG_URL = getenv(
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://graph.org/file/f35df5dd605d76ff790b7-953db0f3e71a2e5a1a.jpg"
+    "https://graph.org/file/e3f44b676bca43a13814b-0952081326229908ba.jpg"
 )
 
 PLAYLIST_IMG_URL = "https://te.legra.ph/file/4ec5ae4381dffb039b4ef.jpg"
